@@ -11,7 +11,7 @@ cd ComfyUI/custom_nodes
 git clone https://github.com/strongobliquelab/non-uniform_scaler
 
 ```
-## Nodes
+## Usage
 
 ### Non-Uniform Scaler (Image)
 
