@@ -1,0 +1,21 @@
+[project]
+name = "non-uniform_scaler"
+version = "1.0.0"
+description = "Non-uniform scaler for images and latents. A tent-shaped factor meets the untouched region at scale 1."
+license = { file = "LICENSE" }
+requires-python = ">=3.9"
+classifiers = [
+    "Operating System :: OS Independent",
+]
+dynamic = ["dependencies"]
+
+[tool.setuptools.dynamic]
+dependencies = { file = ["requirements.txt"] }
+
+[project.urls]
+Repository = "https://github.com/strongobliquelab/non-uniform_scaler"
+
+[tool.comfy]
+PublisherId = "strongobliquelab"
+DisplayName = "Non-Uniform Scaler"
+requires-comfyui = ">=0.3.0"
