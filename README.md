@@ -30,7 +30,7 @@ git clone https://github.com/strongobliquelab/non-uniform_scaler
 
 The node would scale the image along the `direction` axis with a scale that's linear in the source-pixel space: it is one at the starting/ending edges and is `scale_factor` at the span centre.
 
-
+On the targeted_dimension mode, the scale_factor would be computed from the `targeted_dimension` instead.
 
 ### Non-Uniform Scaler (Latent)
 It has **almost** the same controls as the image node, plus:
