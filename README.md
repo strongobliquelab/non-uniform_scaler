@@ -53,4 +53,4 @@ Anyway, in case you didn't notice hard enough, the SDXL/Illustrious's distortion
 As a proof of concept, I also made this [universal deslop stretcher](workflows/deslop_stretching.json) that's based entirely on that theory
 ![64_nodes_from_hell](assets/ss4.png)
 
-You may, and should use **Kohya Deep Shrink** together with this pack as it helps solving the exact same problem as my pack does, in case you don't know its existence. That's it, bye bye.
+You may, and should use **[Kohya Deep Shrink](https://docs.comfy.org/built-in-nodes/PatchModelAddDownscale)** together with this pack as it helps solving the exact same problem as my pack does, in case you don't know its existence. That's it, bye bye.
