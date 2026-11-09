@@ -53,8 +53,9 @@ That is pretty much post-processing. You use the mask input mode when you need p
 Anyway, in case you didn't notice hard enough, the SDXL/Illustrious's distortion is characteristically strongest at the centre of the image; you probably want to counter-stretch your work there. Here, you can put the node between your denoise nodes, with triple passes.
 ![vertical_denoise](assets/ss3.png)
 
-###Universal Deslop Stretcher
+### Universal Deslop Stretcher
 As a proof of concept, I also made this [universal deslop stretcher](workflows/deslop_stretching.json) that's based entirely on that theory
 ![64_nodes_from_hell](assets/ss4.png)
+
 
 You may, and should use **[Kohya Deep Shrink](https://docs.comfy.org/built-in-nodes/PatchModelAddDownscale)** together with this pack as it helps solving the exact same problem as my pack does, in case you don't know its existence. That's it, bye bye.
