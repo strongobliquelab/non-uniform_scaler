@@ -54,7 +54,7 @@ Anyway, in case you didn't notice hard enough, the SDXL/Illustrious's distortion
 ![vertical_denoise](assets/ss3.png)
 
 ### Universal Deslop Stretcher
-As a proof of concept, I also made this [universal deslop stretcher](workflows/deslop_stretching.json) that's based entirely on that theory
+As a proof of concept, I also made this [universal deslop stretcher](workflows/deslop_stretching.json) that's based entirely on that said distortion pattern
 ![64_nodes_from_hell](assets/ss4.png)
 
 
