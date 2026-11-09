@@ -42,14 +42,18 @@ It has **almost** the same controls as the image node, plus:
 The `downsampling_factor_be_8` parameter is 8 (eight), for most cases, and is the downsampling factor of your VAE model. It is, again, eight because it is eight for XL models, ignore this unless you're doing rocket science with a non-XL one. Consult your distilled Gemeni-Instant-Flash-Lite for the correct downsampling factor if you use a non-XL model.
 
 ## Usage (cont.)
+### Introduction
 
-So... Stable Diffusion and its derivative models, including the good'ol Illustrious, are notorious for distorting details. It is painfully obvious even at 1MP and would be amplified and worsened after hi-res passes. Here, I offer a straightforward and **barbaric** solution to cope against it, which is just counter-stretching. Look at this.
+So... Stable Diffusion and its derivative models, including the good'ol Illustrious, are notorious for distorting details. It is painfully obvious even at 1MP and would be amplified and worsened after hi-res passes. Here, I offer a straightforward and **barbaric** solution to cope against it, which is just counter-stretching.
+### Mask Input Example
+Look at this.
 ![mah wife](assets/ss2.png)
 That is pretty much post-processing. You use the mask input mode when you need precise control over where to stretch.
-
+### Latent scaler usage
 Anyway, in case you didn't notice hard enough, the SDXL/Illustrious's distortion is characteristically strongest at the centre of the image; you probably want to counter-stretch your work there. Here, you can put the node between your denoise nodes, with triple passes.
 ![vertical_denoise](assets/ss3.png)
 
+###Universal Deslop Stretcher
 As a proof of concept, I also made this [universal deslop stretcher](workflows/deslop_stretching.json) that's based entirely on that theory
 ![64_nodes_from_hell](assets/ss4.png)
 
