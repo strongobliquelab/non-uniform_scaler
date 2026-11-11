@@ -1,7 +1,7 @@
 {
   "id": "d5a7e2c0-8492-422b-9858-bbcc92972363",
   "revision": 0,
-  "last_node_id": 154,
+  "last_node_id": 155,
   "last_link_id": 492,
   "nodes": [
     {
@@ -45,33 +45,6 @@
       "bgcolor": "#593930"
     },
     {
-      "id": 60,
-      "type": "Note",
-      "pos": [
-        1900,
-        2430
-      ],
-      "size": [
-        400,
-        330
-      ],
-      "flags": {},
-      "order": 1,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [],
-      "title": "Deslop stretching fix",
-      "properties": {},
-      "widgets_values": [
-        "Workflow by 𣔟Korn.\n\n\nThis workflow is FULLY AUTOMATIC. All the parameters are set to be constant accross different inputs, regardless of their sizes, orientations, or ratios.\n\nThis workflow does not know how stretched or messed up your input actually is; it works by procedurally counter-stretching the image accordingly to a known and characteristic pattern of SDXL/Illustrious. It only looks at the image size, which is like hiring a wise and blind man to repair your power lines. Oh, he's deaf too!\n\nTherefore, if you put your works repeatedly through this every refinement pass, it wouldn't work. If you put a perfect or non-AI input, again, it wouldn't work.\n\nYou may put this, necessarily with an if/else toggle, before your i2i refinement passes. If you want precise control, please do NOT use this workflow; we have the mask input precisely for that purpose."
-      ],
-      "widgets_values_named": {
-        "text": "Workflow by 𣔟Korn.\n\n\nThis workflow is FULLY AUTOMATIC. All the parameters are set to be constant accross different inputs, regardless of their sizes, orientations, or ratios.\n\nThis workflow does not know how stretched or messed up your input actually is; it works by procedurally counter-stretching the image accordingly to a known and characteristic pattern of SDXL/Illustrious. It only looks at the image size, which is like hiring a wise and blind man to repair your power lines. Oh, he's deaf too!\n\nTherefore, if you put your works repeatedly through this every refinement pass, it wouldn't work. If you put a perfect or non-AI input, again, it wouldn't work.\n\nYou may put this, necessarily with an if/else toggle, before your i2i refinement passes. If you want precise control, please do NOT use this workflow; we have the mask input precisely for that purpose."
-      },
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
       "id": 61,
       "type": "LoadImage",
       "pos": [
@@ -85,7 +58,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 2,
+      "order": 1,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -1105,7 +1078,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 3,
+      "order": 2,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -1145,7 +1118,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 4,
+      "order": 3,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -1204,9 +1177,7 @@
       "title": "Original",
       "properties": {
         "Node name for S&R": "PreviewImage"
-      },
-      "widgets_values": [],
-      "widgets_values_named": {}
+      }
     },
     {
       "id": 79,
@@ -1241,9 +1212,7 @@
       "title": "Scaled - Pull method",
       "properties": {
         "Node name for S&R": "PreviewImage"
-      },
-      "widgets_values": [],
-      "widgets_values_named": {}
+      }
     },
     {
       "id": 80,
@@ -1374,7 +1343,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 5,
+      "order": 4,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -2226,7 +2195,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 6,
+      "order": 5,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -2266,7 +2235,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 7,
+      "order": 6,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -2325,9 +2294,7 @@
       "title": "Scaled - Push method",
       "properties": {
         "Node name for S&R": "PreviewImage"
-      },
-      "widgets_values": [],
-      "widgets_values_named": {}
+      }
     },
     {
       "id": 110,
@@ -2341,7 +2308,7 @@
         200
       ],
       "flags": {},
-      "order": 8,
+      "order": 7,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -3515,7 +3482,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 9,
+      "order": 8,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -3829,6 +3796,33 @@
       "widgets_values_named": {
         "expression": "a+b*4"
       }
+    },
+    {
+      "id": 155,
+      "type": "MarkdownNote",
+      "pos": [
+        1900,
+        2430
+      ],
+      "size": [
+        400,
+        270
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "𣔟Korn is cute, actually",
+      "properties": {},
+      "widgets_values": [
+        "Workflow by 𣔟Korn. As a proof of concept, I've published it on https://github.com/strongobliquelab/non-uniform_scaler\n\nThis workflow is FULLY AUTOMATIC. All the parameters are set to be constant accross different inputs, regardless of their sizes, orientations, or ratios.\n\nThis workflow does not know how stretched or messed up your input actually is; it works by procedurally counter-stretching the image accordingly to a known and characteristic pattern of SDXL/Illustrious. It only looks at the image size, which is like hiring a wise and blind man to repair your power lines. Oh, he's deaf too!\n\nTherefore, if you put your works repeatedly through this every refinement pass, it wouldn't work. If you put a perfect or non-AI input, again, it wouldn't work.\n\nYou may put this, necessarily with an if/else toggle, before your i2i refinement passes. If you want precise control, please do NOT use this workflow; we have the mask input precisely for that purpose."
+      ],
+      "widgets_values_named": {
+        "text": "Workflow by 𣔟Korn. As a proof of concept, I've published it on https://github.com/strongobliquelab/non-uniform_scaler\n\nThis workflow is FULLY AUTOMATIC. All the parameters are set to be constant accross different inputs, regardless of their sizes, orientations, or ratios.\n\nThis workflow does not know how stretched or messed up your input actually is; it works by procedurally counter-stretching the image accordingly to a known and characteristic pattern of SDXL/Illustrious. It only looks at the image size, which is like hiring a wise and blind man to repair your power lines. Oh, he's deaf too!\n\nTherefore, if you put your works repeatedly through this every refinement pass, it wouldn't work. If you put a perfect or non-AI input, again, it wouldn't work.\n\nYou may put this, necessarily with an if/else toggle, before your i2i refinement passes. If you want precise control, please do NOT use this workflow; we have the mask input precisely for that purpose."
+      },
+      "color": "#432",
+      "bgcolor": "#653"
     }
   ],
   "links": [
@@ -4941,10 +4935,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 1.0770281453962045,
+      "scale": 0.8390545288824015,
       "offset": [
-        -2332.5279893062802,
-        -2224.396216105184
+        -1814.4280248744635,
+        -1948.4533036671758
       ]
     },
     "frontendVersion": "1.57.6"
