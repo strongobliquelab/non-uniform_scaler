@@ -1,8 +1,8 @@
 {
-  "id": "d5a7e2c0-8492-422b-9858-bbcc92972363",
+  "id": "a79def35-bbd1-436c-9d0e-076c87b653a0",
   "revision": 0,
-  "last_node_id": 155,
-  "last_link_id": 492,
+  "last_node_id": 160,
+  "last_link_id": 501,
   "nodes": [
     {
       "id": 59,
@@ -137,7 +137,8 @@
             380,
             397,
             404,
-            408
+            408,
+            494
           ]
         },
         {
@@ -159,7 +160,8 @@
             379,
             398,
             407,
-            416
+            416,
+            498
           ]
         }
       ],
@@ -179,7 +181,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 16,
+      "order": 17,
       "mode": 0,
       "inputs": [
         {
@@ -250,7 +252,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 51,
+      "order": 53,
       "mode": 0,
       "inputs": [
         {
@@ -337,7 +339,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 52,
+      "order": 54,
       "mode": 0,
       "inputs": [
         {
@@ -424,7 +426,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 17,
+      "order": 18,
       "mode": 0,
       "inputs": [
         {
@@ -489,7 +491,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 18,
+      "order": 19,
       "mode": 0,
       "inputs": [
         {
@@ -554,7 +556,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 47,
+      "order": 49,
       "mode": 0,
       "inputs": [
         {
@@ -655,7 +657,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 48,
+      "order": 50,
       "mode": 0,
       "inputs": [
         {
@@ -756,7 +758,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 19,
+      "order": 20,
       "mode": 0,
       "inputs": [
         {
@@ -817,7 +819,7 @@
       "id": 71,
       "type": "ImageScale",
       "pos": [
-        3370,
+        3570,
         2430
       ],
       "size": [
@@ -827,13 +829,13 @@
       "flags": {
         "collapsed": true
       },
-      "order": 55,
+      "order": 59,
       "mode": 0,
       "inputs": [
         {
           "name": "image",
           "type": "IMAGE",
-          "link": 440
+          "link": 497
         },
         {
           "name": "width",
@@ -881,7 +883,7 @@
       "id": 72,
       "type": "ImageScale",
       "pos": [
-        3350,
+        3570,
         2470
       ],
       "size": [
@@ -891,13 +893,13 @@
       "flags": {
         "collapsed": true
       },
-      "order": 56,
+      "order": 60,
       "mode": 0,
       "inputs": [
         {
           "name": "image",
           "type": "IMAGE",
-          "link": 443
+          "link": 501
         },
         {
           "name": "width",
@@ -945,8 +947,8 @@
       "id": 73,
       "type": "ComfySwitchNode",
       "pos": [
-        3500,
-        2470
+        3830,
+        2430
       ],
       "size": [
         270,
@@ -955,7 +957,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 57,
+      "order": 61,
       "mode": 0,
       "inputs": [
         {
@@ -1003,7 +1005,7 @@
       "id": 74,
       "type": "ComfyMathExpression",
       "pos": [
-        3530,
+        3720,
         2430
       ],
       "size": [
@@ -1013,7 +1015,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 20,
+      "order": 21,
       "mode": 0,
       "inputs": [
         {
@@ -1149,11 +1151,11 @@
       "type": "PreviewImage",
       "pos": [
         3350,
-        2510
+        2550
       ],
       "size": [
         250,
-        520
+        480
       ],
       "flags": {
         "collapsed": false
@@ -1177,23 +1179,25 @@
       "title": "Original",
       "properties": {
         "Node name for S&R": "PreviewImage"
-      }
+      },
+      "widgets_values": [],
+      "widgets_values_named": {}
     },
     {
       "id": 79,
       "type": "PreviewImage",
       "pos": [
         3600,
-        2510
+        2550
       ],
       "size": [
         250,
-        520
+        480
       ],
       "flags": {
         "collapsed": false
       },
-      "order": 64,
+      "order": 68,
       "mode": 0,
       "inputs": [
         {
@@ -1212,7 +1216,9 @@
       "title": "Scaled - Pull method",
       "properties": {
         "Node name for S&R": "PreviewImage"
-      }
+      },
+      "widgets_values": [],
+      "widgets_values_named": {}
     },
     {
       "id": 80,
@@ -1228,7 +1234,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 49,
+      "order": 51,
       "mode": 0,
       "inputs": [
         {
@@ -1278,7 +1284,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 44,
+      "order": 46,
       "mode": 0,
       "inputs": [
         {
@@ -1387,7 +1393,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 43,
+      "order": 45,
       "mode": 0,
       "inputs": [
         {
@@ -1437,7 +1443,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 26,
+      "order": 28,
       "mode": 0,
       "inputs": [
         {
@@ -1529,7 +1535,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 25,
+      "order": 27,
       "mode": 0,
       "inputs": [
         {
@@ -1618,7 +1624,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 31,
+      "order": 33,
       "mode": 0,
       "inputs": [
         {
@@ -1696,7 +1702,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 27,
+      "order": 29,
       "mode": 0,
       "inputs": [
         {
@@ -1788,7 +1794,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 45,
+      "order": 47,
       "mode": 0,
       "inputs": [
         {
@@ -1838,7 +1844,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 46,
+      "order": 48,
       "mode": 0,
       "inputs": [
         {
@@ -1903,7 +1909,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 50,
+      "order": 52,
       "mode": 0,
       "inputs": [
         {
@@ -1953,7 +1959,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 22,
+      "order": 23,
       "mode": 0,
       "inputs": [
         {
@@ -2018,7 +2024,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 21,
+      "order": 22,
       "mode": 0,
       "inputs": [
         {
@@ -2073,7 +2079,7 @@
       "id": 95,
       "type": "EndLoop",
       "pos": [
-        3250,
+        3120,
         2430
       ],
       "size": [
@@ -2083,7 +2089,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 53,
+      "order": 55,
       "mode": 0,
       "inputs": [
         {
@@ -2111,7 +2117,7 @@
           "shape": 6,
           "type": "IMAGE",
           "links": [
-            440
+            496
           ]
         }
       ],
@@ -2129,8 +2135,8 @@
       "id": 96,
       "type": "EndLoop",
       "pos": [
-        3120,
-        2430
+        3350,
+        2510
       ],
       "size": [
         270,
@@ -2139,7 +2145,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 54,
+      "order": 56,
       "mode": 0,
       "inputs": [
         {
@@ -2167,7 +2173,7 @@
           "shape": 6,
           "type": "IMAGE",
           "links": [
-            443
+            500
           ]
         }
       ],
@@ -2266,16 +2272,16 @@
       "type": "PreviewImage",
       "pos": [
         3850,
-        2510
+        2550
       ],
       "size": [
         250,
-        520
+        480
       ],
       "flags": {
         "collapsed": false
       },
-      "order": 63,
+      "order": 67,
       "mode": 0,
       "inputs": [
         {
@@ -2294,7 +2300,9 @@
       "title": "Scaled - Push method",
       "properties": {
         "Node name for S&R": "PreviewImage"
-      }
+      },
+      "widgets_values": [],
+      "widgets_values_named": {}
     },
     {
       "id": 110,
@@ -2365,7 +2373,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 30,
+      "order": 32,
       "mode": 0,
       "inputs": [
         {
@@ -2492,8 +2500,8 @@
       "id": 114,
       "type": "EndLoop",
       "pos": [
-        3650,
-        2470
+        3980,
+        2430
       ],
       "size": [
         270,
@@ -2502,7 +2510,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 58,
+      "order": 62,
       "mode": 0,
       "inputs": [
         {
@@ -2559,7 +2567,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 23,
+      "order": 24,
       "mode": 0,
       "inputs": [
         {
@@ -2624,7 +2632,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 24,
+      "order": 25,
       "mode": 0,
       "inputs": [
         {
@@ -2743,13 +2751,13 @@
         2510
       ],
       "size": [
-        150,
+        190,
         90
       ],
       "flags": {
         "collapsed": true
       },
-      "order": 38,
+      "order": 40,
       "mode": 0,
       "inputs": [
         {
@@ -2791,13 +2799,13 @@
         2750
       ],
       "size": [
-        150,
+        190,
         90
       ],
       "flags": {
         "collapsed": true
       },
-      "order": 37,
+      "order": 39,
       "mode": 0,
       "inputs": [
         {
@@ -2906,7 +2914,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 36,
+      "order": 38,
       "mode": 0,
       "inputs": [
         {
@@ -2965,7 +2973,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 35,
+      "order": 37,
       "mode": 0,
       "inputs": [
         {
@@ -3018,13 +3026,13 @@
         2470
       ],
       "size": [
-        150,
+        190,
         90
       ],
       "flags": {
         "collapsed": true
       },
-      "order": 41,
+      "order": 43,
       "mode": 0,
       "inputs": [
         {
@@ -3066,13 +3074,13 @@
         2950
       ],
       "size": [
-        150,
+        190,
         90
       ],
       "flags": {
         "collapsed": true
       },
-      "order": 42,
+      "order": 44,
       "mode": 0,
       "inputs": [
         {
@@ -3114,13 +3122,13 @@
         3030
       ],
       "size": [
-        150,
+        190,
         90
       ],
       "flags": {
         "collapsed": true
       },
-      "order": 28,
+      "order": 30,
       "mode": 0,
       "inputs": [
         {
@@ -3163,13 +3171,13 @@
         2950
       ],
       "size": [
-        150,
+        190,
         90
       ],
       "flags": {
         "collapsed": true
       },
-      "order": 29,
+      "order": 31,
       "mode": 0,
       "inputs": [
         {
@@ -3211,13 +3219,13 @@
         2910
       ],
       "size": [
-        150,
+        190,
         90
       ],
       "flags": {
         "collapsed": true
       },
-      "order": 33,
+      "order": 35,
       "mode": 0,
       "inputs": [
         {
@@ -3259,13 +3267,13 @@
         2870
       ],
       "size": [
-        150,
+        190,
         90
       ],
       "flags": {
         "collapsed": true
       },
-      "order": 34,
+      "order": 36,
       "mode": 0,
       "inputs": [
         {
@@ -3314,13 +3322,13 @@
         2550
       ],
       "size": [
-        150,
+        190,
         90
       ],
       "flags": {
         "collapsed": true
       },
-      "order": 32,
+      "order": 34,
       "mode": 0,
       "inputs": [
         {
@@ -3359,7 +3367,7 @@
       "type": "ComfySwitchNode",
       "pos": [
         3960,
-        2430
+        2470
       ],
       "size": [
         270,
@@ -3368,7 +3376,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 62,
+      "order": 66,
       "mode": 0,
       "inputs": [
         {
@@ -3416,7 +3424,7 @@
       "type": "ComfySwitchNode",
       "pos": [
         3960,
-        2470
+        2510
       ],
       "size": [
         270,
@@ -3425,7 +3433,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 61,
+      "order": 65,
       "mode": 0,
       "inputs": [
         {
@@ -3472,8 +3480,8 @@
       "id": 145,
       "type": "EmptyImage",
       "pos": [
-        3640,
-        2430
+        3570,
+        2510
       ],
       "size": [
         270,
@@ -3515,8 +3523,8 @@
       "id": 148,
       "type": "GetItemFromList",
       "pos": [
-        3780,
-        2430
+        3750,
+        2470
       ],
       "size": [
         210,
@@ -3525,7 +3533,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 60,
+      "order": 64,
       "mode": 0,
       "inputs": [
         {
@@ -3557,8 +3565,8 @@
       "id": 149,
       "type": "GetItemFromList",
       "pos": [
-        3780,
-        2470
+        3750,
+        2510
       ],
       "size": [
         210,
@@ -3567,7 +3575,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 59,
+      "order": 63,
       "mode": 0,
       "inputs": [
         {
@@ -3679,7 +3687,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 40,
+      "order": 42,
       "mode": 0,
       "inputs": [
         {
@@ -3745,7 +3753,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 39,
+      "order": 41,
       "mode": 0,
       "inputs": [
         {
@@ -3823,57 +3831,239 @@
       },
       "color": "#432",
       "bgcolor": "#653"
+    },
+    {
+      "id": 156,
+      "type": "ImageSOCDNormalizer",
+      "pos": [
+        3350,
+        2430
+      ],
+      "size": [
+        220,
+        130
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 57,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 496
+        },
+        {
+          "name": "smooth_factor",
+          "type": "FLOAT",
+          "widget": {
+            "name": "smooth_factor"
+          },
+          "link": 495
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            497
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageSOCDNormalizer"
+      },
+      "widgets_values": [
+        "horizontal",
+        "both",
+        0,
+        0.2
+      ],
+      "widgets_values_named": {
+        "direction": "horizontal",
+        "crop_mode": "both",
+        "smooth_factor": 0,
+        "strength": 0.2
+      }
+    },
+    {
+      "id": 157,
+      "type": "ComfyMathExpression",
+      "pos": [
+        3250,
+        2430
+      ],
+      "size": [
+        210,
+        130
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "values.a",
+          "type": "FLOAT,INT,BOOLEAN",
+          "link": 494
+        },
+        {
+          "name": "values.b",
+          "shape": 7,
+          "type": "FLOAT,INT,BOOLEAN",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": [
+            495
+          ]
+        },
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": []
+        },
+        {
+          "name": "BOOL",
+          "type": "BOOLEAN",
+          "links": []
+        }
+      ],
+      "title": "W/5",
+      "properties": {
+        "Node name for S&R": "ComfyMathExpression"
+      },
+      "widgets_values": [
+        "a/5+50"
+      ],
+      "widgets_values_named": {
+        "expression": "a/5+50"
+      }
+    },
+    {
+      "id": 159,
+      "type": "ComfyMathExpression",
+      "pos": [
+        3480,
+        2510
+      ],
+      "size": [
+        210,
+        130
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 26,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "values.a",
+          "type": "FLOAT,INT,BOOLEAN",
+          "link": 498
+        },
+        {
+          "name": "values.b",
+          "shape": 7,
+          "type": "FLOAT,INT,BOOLEAN",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": [
+            499
+          ]
+        },
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": []
+        },
+        {
+          "name": "BOOL",
+          "type": "BOOLEAN",
+          "links": []
+        }
+      ],
+      "title": "H/5",
+      "properties": {
+        "Node name for S&R": "ComfyMathExpression"
+      },
+      "widgets_values": [
+        "a/5+50"
+      ],
+      "widgets_values_named": {
+        "expression": "a/5+50"
+      }
+    },
+    {
+      "id": 160,
+      "type": "ImageSOCDNormalizer",
+      "pos": [
+        3350,
+        2470
+      ],
+      "size": [
+        220,
+        130
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 58,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 500
+        },
+        {
+          "name": "smooth_factor",
+          "type": "FLOAT",
+          "widget": {
+            "name": "smooth_factor"
+          },
+          "link": 499
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            501
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageSOCDNormalizer"
+      },
+      "widgets_values": [
+        "vertical",
+        "both",
+        0,
+        0.2
+      ],
+      "widgets_values_named": {
+        "direction": "vertical",
+        "crop_mode": "both",
+        "smooth_factor": 0,
+        "strength": 0.2
+      }
     }
   ],
   "links": [
-    [
-      168,
-      68,
-      0,
-      64,
-      2,
-      "FLOAT"
-    ],
-    [
-      169,
-      69,
-      0,
-      65,
-      2,
-      "FLOAT"
-    ],
-    [
-      182,
-      63,
-      1,
-      71,
-      1,
-      "INT"
-    ],
-    [
-      183,
-      62,
-      1,
-      71,
-      2,
-      "INT"
-    ],
-    [
-      184,
-      62,
-      0,
-      72,
-      1,
-      "INT"
-    ],
-    [
-      185,
-      70,
-      1,
-      72,
-      2,
-      "INT"
-    ],
     [
       186,
       71,
@@ -3955,38 +4145,6 @@
       "IMAGE"
     ],
     [
-      233,
-      90,
-      0,
-      65,
-      4,
-      "INT"
-    ],
-    [
-      234,
-      88,
-      0,
-      65,
-      3,
-      "INT"
-    ],
-    [
-      235,
-      80,
-      0,
-      64,
-      4,
-      "INT"
-    ],
-    [
-      236,
-      83,
-      0,
-      64,
-      3,
-      "INT"
-    ],
-    [
       243,
       61,
       0,
@@ -4051,14 +4209,6 @@
       "IMAGE"
     ],
     [
-      440,
-      95,
-      0,
-      71,
-      0,
-      "IMAGE"
-    ],
-    [
       441,
       64,
       0,
@@ -4072,14 +4222,6 @@
       0,
       95,
       1,
-      "IMAGE"
-    ],
-    [
-      443,
-      96,
-      0,
-      72,
-      0,
       "IMAGE"
     ],
     [
@@ -4177,6 +4319,134 @@
       88,
       1,
       "INT"
+    ],
+    [
+      168,
+      68,
+      0,
+      64,
+      2,
+      "FLOAT"
+    ],
+    [
+      236,
+      83,
+      0,
+      64,
+      3,
+      "INT"
+    ],
+    [
+      235,
+      80,
+      0,
+      64,
+      4,
+      "INT"
+    ],
+    [
+      169,
+      69,
+      0,
+      65,
+      2,
+      "FLOAT"
+    ],
+    [
+      234,
+      88,
+      0,
+      65,
+      3,
+      "INT"
+    ],
+    [
+      233,
+      90,
+      0,
+      65,
+      4,
+      "INT"
+    ],
+    [
+      182,
+      63,
+      1,
+      71,
+      1,
+      "INT"
+    ],
+    [
+      183,
+      62,
+      1,
+      71,
+      2,
+      "INT"
+    ],
+    [
+      184,
+      62,
+      0,
+      72,
+      1,
+      "INT"
+    ],
+    [
+      185,
+      70,
+      1,
+      72,
+      2,
+      "INT"
+    ],
+    [
+      495,
+      157,
+      0,
+      156,
+      1,
+      "FLOAT"
+    ],
+    [
+      496,
+      95,
+      0,
+      156,
+      0,
+      "IMAGE"
+    ],
+    [
+      497,
+      156,
+      0,
+      71,
+      0,
+      "IMAGE"
+    ],
+    [
+      499,
+      159,
+      0,
+      160,
+      1,
+      "FLOAT"
+    ],
+    [
+      500,
+      96,
+      0,
+      160,
+      0,
+      "IMAGE"
+    ],
+    [
+      501,
+      160,
+      0,
+      72,
+      0,
+      "IMAGE"
     ],
     [
       170,
@@ -4755,6 +5025,22 @@
       "BOOLEAN"
     ],
     [
+      494,
+      62,
+      0,
+      157,
+      0,
+      "INT"
+    ],
+    [
+      498,
+      62,
+      1,
+      159,
+      0,
+      "INT"
+    ],
+    [
       166,
       62,
       0,
@@ -4935,13 +5221,13 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.8390545288824015,
+      "scale": 1.0563858915142292,
       "offset": [
-        -1814.4280248744635,
-        -1948.4533036671758
+        -2315.95870107189,
+        -2194.2595546141774
       ]
     },
-    "frontendVersion": "1.57.6"
+    "frontendVersion": "1.59.0"
   },
   "version": 0.4
 }
