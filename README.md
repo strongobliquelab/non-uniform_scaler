@@ -73,7 +73,7 @@ Look at this.
 ![mah wife](assets/ss2.png)
 You probably want to shorten her elongated torso and head top with a 0.6-0.8 `scale_factor`. Here, the mask input mode offers precise control over where to stretch. Note that the affected region is strictly defined by the mask's topmost and bottommost boundaries, so you would need to fix those two regions one by one.
 
-That is pretty much post-processing. However, I recommend using it as an inter-pass processing tool instead, preferably right after t2i. Please respect your own artworks.
+That is pretty much post-processing. However, I recommend using it as an inter-pass processing tool instead, preferably right after T2I. Please respect your own artworks.
 
 ### Latent Scaler Usage
 Anyway, in case you didn't notice hard enough, the SDXL/Illustrious's distortion is characteristically strongest at the centre of the image; you probably want to counter-stretch your work there with an affected area that fully covers your inputs. Here, you can put the latent scalers between your denoise nodes, with triple passes. It works by creating an extra space so that my non-uniform scaler can shrink the thing properly.
