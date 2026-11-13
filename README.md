@@ -43,6 +43,23 @@ It has **almost** the same controls as the image node, plus:
 
 The `downsampling_factor_be_8` parameter is 8 (eight), for most cases, and is the downsampling factor of your VAE model. It is, again, eight because it is eight for XL models, ignore this unless you're doing rocket science with a non-XL one. Consult your distilled Gemini-Instant-Flash-Lite for the correct downsampling factor if you use a non-XL model.
 
+
+### SOCD Normalizer (Image)
+
+| Parameter       | Type  | Description |
+|-----------------|-------|-------------|
+| `image`         | IMAGE | Input image batch |
+| `direction`     | combo | `vertical` or `horizontal` |
+| `crop_mode`     | combo | `both`, `first`, or `second`. How the node should trim some insignificant leftover pixels |
+| `smooth_factor` | FLOAT | Gaussian sigma, in pixels on the difference curve |
+| `strength`      | FLOAT | The scale between no influence at `0` and fully normalized at `1` |
+
+This SOCD Normalizer node, or the **Second-Order Central Difference Normalizer** node, is highly experimental and is in no way principled nor civilized. It reads three channels of the magnitude of the SOCD of the mean color value on each pixel row/column across the `direction` axis from the three color channels. Those SOCD magnitude channels are then summed together, smoothed accordingly to `smooth_factor`, normalized, and then scaled accordingly to `strength`. The node normalizes and scales the SOCD magnitude in such a way to match the output dimension to the input's.
+
+At a very low `strength`, it helps correct both AI-generated inputs and inputs that were over-scaled with the two nodes listed above. The recommended minimum `smooth_factor` is `100`; the recommended maximum `strength` is `0.5`.
+
+It is a really niche node; using it high-contrast inputs, simple background input, and inputs with striped clothing could badly degrade the result.
+
 ## Usage (cont.)
 ### Introduction
 
@@ -52,6 +69,7 @@ Of course, as a barbaric solution, you have total control over where, when, and 
 
 ### Mask Input Inter-Pass Processing
 Look at this.
+
 ![mah wife](assets/ss2.png)
 You probably want to shorten her elongated torso and head top with a 0.6-0.8 `scale_factor`. Here, the mask input mode offers precise control over where to stretch. Note that the affected region is strictly defined by the mask's topmost and bottommost boundaries, so you would need to fix those two regions one by one.
 
@@ -59,12 +77,19 @@ That is pretty much post-processing. However, I recommend using it as an inter-p
 
 ### Latent Scaler Usage
 Anyway, in case you didn't notice hard enough, the SDXL/Illustrious's distortion is characteristically strongest at the centre of the image; you probably want to counter-stretch your work there with an affected area that fully covers your inputs. Here, you can put the latent scalers between your denoise nodes, with triple passes. It works by creating an extra space so that my non-uniform scaler can shrink the thing properly.
-![vertical_denoise](assets/ss3.png)
-In this example, it is a component of a t2i workflow. For i2i please use the **Non-Uniform Scaler (Image)** node before VAE encoding instead.
+
+![tri_denoise](assets/ss3.png)
+
+Or, you may consider this double-pass version that utilizes Latent Blend node. It may introduce artifact though.
+
+![duo_denoise](assets/ss4.png)
+
+In these two examples, it is a component of a T2I workflow. For I2I please use the **Non-Uniform Scaler (Image)** node before VAE encoding instead.
 
 ### Universal Deslop Stretcher
 As a proof of concept, I also made this [universal deslop stretcher](workflows/deslop_stretching.json) that's based entirely on that said distortion pattern.
-![64_nodes_from_hell](assets/ss4.png)
+
+![68_nodes_from_hell](assets/ss5.png)
 
 ---
 
