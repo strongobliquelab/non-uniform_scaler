@@ -80,7 +80,7 @@ Anyway, in case you didn't notice hard enough, the SDXL/Illustrious's distortion
 
 ![tri_denoise](assets/ss3.png)
 
-Or, you may consider this double-pass version that utilizes Latent Blend node. It may introduce artifact though.
+Or, you may consider this double-pass version that utilizes the Latent Blend node. It may introduce artifact though.
 
 ![duo_denoise](assets/ss4.png)
 
