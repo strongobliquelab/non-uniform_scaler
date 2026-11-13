@@ -58,7 +58,7 @@ This SOCD Normalizer node, or the **Second-Order Central Difference Normalizer**
 
 At a very low `strength`, it helps correct both AI-generated inputs and inputs that were over-scaled with the two nodes listed above. The recommended minimum `smooth_factor` is `100`; the recommended maximum `strength` is `0.5`.
 
-It is a really niche node; using it high-contrast inputs, simple background input, and inputs with striped clothing could badly degrade the result.
+It is a really niche node -- using it with a high-contrast input, a simple background input, or an input with striped clothing could badly degrade the result.
 
 ## Usage (cont.)
 ### Introduction
