@@ -345,3 +345,155 @@ def _fit_length_latent(latent: np.ndarray, axis: int, target: int, crop_mode: st
         pad = np.repeat(latent[:, :, :, -1:], need, axis=3)
         return np.concatenate([latent, pad], axis=3)
     return latent
+
+
+_SOCD_EPS = 1e-8
+
+
+def _abs_socd(profile: np.ndarray) -> np.ndarray:
+    """Sum of absolute second-order central differences, one value per sample.
+
+    ``profile`` has shape ``[C, N]``. The stencil ``s[i-1] - 2 s[i] + s[i+1]``
+    is centered on sample ``i``. Endpoints copy the nearest defined sample.
+    """
+    n = int(profile.shape[1])
+    out = np.zeros((n,), dtype=np.float64)
+    if n < 3 or profile.shape[0] == 0:
+        return out
+    mid = profile[:, 2:] - 2.0 * profile[:, 1:-1] + profile[:, :-2]
+    out[1:-1] = np.abs(mid).sum(axis=0)
+    out[0] = out[1]
+    out[-1] = out[-2]
+    return out
+
+
+def _reflect_index(n: int, radius: int) -> np.ndarray:
+    """Indices of a reflect-padded axis (numpy ``reflect``: no repeated edge)."""
+    idx = np.arange(-radius, n + radius, dtype=np.int64)
+    if n <= 1:
+        return np.zeros((idx.shape[0],), dtype=np.int64)
+    period = 2 * (n - 1)
+    idx = np.mod(idx, period)
+    return np.where(idx < n, idx, period - idx)
+
+
+def _gaussian_smooth(signal: np.ndarray, sigma: float) -> np.ndarray:
+    """1D Gaussian blur. ``sigma`` is in samples; ``0`` returns ``signal``."""
+    if signal.size == 0 or sigma <= 1e-8:
+        return signal
+    radius = max(1, int(math.ceil(float(sigma) * 3.0)))
+    x = np.arange(-radius, radius + 1, dtype=np.float64)
+    kernel = np.exp(-0.5 * (x / float(sigma)) ** 2)
+    kernel /= kernel.sum()
+    padded = signal[_reflect_index(int(signal.shape[0]), radius)]
+    return np.convolve(padded, kernel, mode="valid")
+
+
+def socd_scale(profile: np.ndarray, smooth_factor: float, strength: float) -> np.ndarray:
+    """Per-sample scale from a second-order central difference.
+
+    ``profile`` is ``[C, N]``, channels by rows or by columns, in per-pixel
+    units (a mean, not a sum). The absolute central difference is summed over
+    channels and smoothed. With ``g`` that curve normalized to mean 1:
+
+        scale = 1 + strength * (g - 1)
+
+    Results below zero are clamped, then the scale is renormalized to sum to
+    ``N``, so the warped length matches the input. A flat or linear profile,
+    an axis shorter than 3, or a non-positive strength returns ones.
+    """
+    n = int(profile.shape[1]) if profile.ndim == 2 else 0
+    ones = np.ones((n,), dtype=np.float64)
+    if n < 3 or strength <= 0.0 or profile.shape[0] == 0:
+        return ones
+    raw = _gaussian_smooth(_abs_socd(np.asarray(profile, dtype=np.float64)), smooth_factor)
+    peak = float(raw.max()) if raw.size else 0.0
+    if peak <= _SOCD_EPS:
+        return ones
+    mean = float(raw.mean())
+    if mean <= _SOCD_EPS:
+        return ones
+    g = raw / mean
+    scale = 1.0 + float(strength) * (g - 1.0)
+    np.maximum(scale, 0.0, out=scale)
+    total = float(scale.sum())
+    if total <= _SOCD_EPS:
+        return ones
+    scale *= n / total
+    return scale
+
+
+def _source_pixel_coords(scale: np.ndarray) -> np.ndarray:
+    """Map output pixel centers back to source pixel indices.
+
+    ``scale[i]`` is how much output length source pixel ``i`` contributes.
+    Pixel ``i`` covers source-edge ``[i, i + 1]`` and is centered at index
+    ``i``. Coordinates are clamped to ``[0, n - 1]``, which is bilinear with
+    edge replication.
+    """
+    n = int(scale.shape[0])
+    if n == 0:
+        return np.zeros((0,), dtype=np.float64)
+    cdf = np.empty(n + 1, dtype=np.float64)
+    cdf[0] = 0.0
+    np.cumsum(np.maximum(scale, 0.0), out=cdf[1:])
+    end = float(cdf[-1])
+    if end > 0.0:
+        cdf *= n / end
+    else:
+        return np.arange(n, dtype=np.float64)
+    ys = np.arange(n, dtype=np.float64) + 0.5
+    idx = np.searchsorted(cdf, ys, side="right") - 1
+    idx = np.clip(idx, 0, n - 1)
+    left = cdf[idx]
+    width = cdf[idx + 1] - left
+    t = np.zeros((n,), dtype=np.float64)
+    np.divide(ys - left, width, out=t, where=width > 1e-15)
+    pixel = idx.astype(np.float64) + t - 0.5
+    return np.clip(pixel, 0.0, n - 1.0)
+
+
+def normalize_socd_image(
+    image: np.ndarray,
+    direction: str,
+    crop_mode: str,
+    smooth_factor: float,
+    strength: float,
+) -> np.ndarray:
+    """Warp a ``[B, H, W, C]`` image so local scale follows the SOCD profile.
+
+    Vertical reads each row; horizontal reads each column. Alpha is ignored
+    while measuring (a fourth channel is not part of the profile) but is
+    warped with the other channels. Each batch image gets its own warp.
+    ``crop_mode`` only corrects a rounding leftover, same rules as the
+    tent scaler: ``both`` gives the extra pixel to the second end, and
+    padding repeats the second end.
+    """
+    if image.ndim != 4:
+        raise ValueError("image must have shape [B, H, W, C]")
+    axis = 1 if direction == "vertical" else 2
+    length = int(image.shape[axis])
+    if (
+        image.shape[0] == 0
+        or length < 3
+        or image.shape[1] == 0
+        or image.shape[2] == 0
+        or float(strength) <= 0.0
+    ):
+        return np.ascontiguousarray(image)
+
+    frames = []
+    for index in range(int(image.shape[0])):
+        frame = image[index]
+        color = frame[..., :3] if frame.shape[-1] == 4 else frame
+        if axis == 1:
+            means = color.mean(axis=1)
+        else:
+            means = color.mean(axis=0)
+        profile = np.swapaxes(np.asarray(means, dtype=np.float64), 0, 1)
+        scale = socd_scale(profile, float(smooth_factor), float(strength))
+        coords = _source_pixel_coords(scale)
+        frames.append(_sample_axis(frame[None, ...], axis, coords)[0])
+    warped = np.stack(frames, axis=0)
+    warped = _fit_length(warped, axis, length, crop_mode)
+    return np.ascontiguousarray(warped)
